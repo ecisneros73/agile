@@ -1,0 +1,35 @@
+# kagent 0.10.3, local Minikube lab
+imagePullPolicy: Never
+global:
+  imagePullPolicy: Never
+providers:
+  default: openAI
+  openAI:
+    model: gpt-4.1-mini
+    apiKeySecretRef: kagent-openai
+    apiKeySecretKey: OPENAI_API_KEY
+controller:
+  replicas: 1
+  image:
+    pullPolicy: Never
+  agentImage:
+    registry: ghcr.io
+    repository: kagent-dev/kagent/golang-adk
+    tag: "0.10.3"
+  resources:
+    requests: {cpu: 100m, memory: 128Mi}
+    limits: {cpu: '2', memory: 512Mi}
+ui:
+  replicas: 1
+  image:
+    pullPolicy: Never
+  resources:
+    requests: {cpu: 100m, memory: 256Mi}
+    limits: {cpu: '1', memory: 1Gi}
+kmcp:
+  enabled: true
+kagent-tools:
+  enabled: true
+grafana-mcp:
+  enabled: false
+# Keep default sample agents enabled; agent runtime image(s) must be loaded.

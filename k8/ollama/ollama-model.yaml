@@ -1,0 +1,13 @@
+
+apiVersion: kagent.dev/v1alpha2
+kind: ModelConfig
+metadata:
+  name: ollama-model-config
+  namespace: kagent
+spec:
+  provider: Ollama
+  model: qwen3.5:4b
+  ollama:
+    host: http://host.docker.internal:11434
+    options:
+      num_ctx: "8192"
