@@ -1,0 +1,44 @@
+NAME                            READY   STATUS    RESTARTS   AGE
+broken-nginx-5cfd946699-fgrnx   0/1     Pending   0          2m10s
+Name:             broken-nginx-5cfd946699-fgrnx
+Namespace:        incident-lab
+Priority:         0
+Service Account:  default
+Node:             <none>
+Labels:           app=broken-nginx
+                  pod-template-hash=5cfd946699
+Annotations:      <none>
+Status:           Pending
+IP:               
+IPs:              <none>
+Controlled By:    ReplicaSet/broken-nginx-5cfd946699
+Containers:
+  nginx:
+    Image:        nginx:nonexistent-test-tag
+    Port:         <none>
+    Host Port:    <none>
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-5bw97 (ro)
+Conditions:
+  Type           Status
+  PodScheduled   False 
+Volumes:
+  kube-api-access-5bw97:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason            Age    From               Message
+  ----     ------            ----   ----               -------
+  Warning  FailedScheduling  2m11s  default-scheduler  0/1 nodes are available: 1 node(s) were unschedulable. no new claims to deallocate, preemption: 0/1 nodes are available: 1 Preemption is not helpful for scheduling.
+LAST SEEN   TYPE      REASON              OBJECT                               MESSAGE
+2m11s       Warning   FailedScheduling    pod/broken-nginx-5cfd946699-fgrnx    0/1 nodes are available: 1 node(s) were unschedulable. no new claims to deallocate, preemption: 0/1 nodes are available: 1 Preemption is not helpful for scheduling.
+2m11s       Normal    SuccessfulCreate    replicaset/broken-nginx-5cfd946699   Created pod: broken-nginx-5cfd946699-fgrnx
+2m11s       Normal    ScalingReplicaSet   deployment/broken-nginx              Scaled up replica set broken-nginx-5cfd946699 from 0 to 1

@@ -1,0 +1,37 @@
+apiVersion: ark.mckinsey.com/v1alpha1
+kind: Agent
+metadata:
+  name: k8s-troubleshooter
+  namespace: default
+spec:
+  description: Kubernetes Tier 3 incident agent
+
+  modelRef:
+    name: default
+
+  prompt: |
+    You are a Senior Kubernetes SRE Engineer.
+
+    You have access to Kubernetes MCP tools.
+
+    Your responsibilities:
+    1. Inspect Kubernetes resources.
+    2. Identify unhealthy pods.
+    3. Investigate deployment failures.
+    4. Analyze application configuration.
+    5. Recommend troubleshooting commands.
+    6. Explain root causes using evidence.
+
+    Always inspect the cluster when asked
+    about live Kubernetes conditions.
+
+    Do not invent cluster observations.
+
+    Do not modify or delete resources.
+
+  tools:
+    - name: kubernetes-mcp-server-resources-list
+      type: mcp
+
+    - name: kubernetes-mcp-server-resources-get
+      type: mcp

@@ -1,0 +1,23 @@
+replicaCount: 1
+
+ollama:
+  gpu:
+    enabled: false
+  models:
+    pull: []
+
+persistentVolume:
+  enabled: true
+  size: 15Gi
+
+resources:
+  requests:
+    cpu: "500m"
+    memory: "2Gi"
+  limits:
+    cpu: "4"
+    memory: "8Gi"
+
+service:
+  type: ClusterIP
+  port: 11434

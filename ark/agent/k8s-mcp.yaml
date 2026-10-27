@@ -1,0 +1,11 @@
+apiVersion: ark.mckinsey.com/v1alpha1
+kind: MCPServer
+metadata:
+  name: k8s-mcp
+  namespace: default
+spec:
+  address:
+    value: "http://k8s-mcp.default.svc.cluster.local:8080/mcp"
+  transport: http
+  timeout: "60s"
+  description: Kubernetes diagnostic tools
