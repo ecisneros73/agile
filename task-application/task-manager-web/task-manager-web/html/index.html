@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="page-header">
+      <div class="eyebrow">PERSONAL PRODUCTIVITY</div>
+      <h1>My Tasks</h1>
+      <p>Organize your work. Add, edit, and remove tasks in one place.</p>
+    </header>
+
+    <section class="panel" aria-labelledby="form-title">
+      <div class="section-heading"><h2 id="form-title">Add a task</h2></div>
+      <form id="task-form">
+        <div class="field">
+          <label for="task-name">Task name <span aria-hidden="true">*</span></label>
+          <input id="task-name" name="taskName" type="text" maxlength="120" required autocomplete="off" placeholder="e.g. Deploy NGINX container">
+        </div>
+        <div class="field">
+          <label for="task-description">Description</label>
+          <textarea id="task-description" name="taskDescription" maxlength="2000" rows="3" placeholder="Add the details for this task..."></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="primary" id="submit-task">+ Add task</button>
+          <button type="button" class="secondary hidden" id="cancel-edit">Cancel editing</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel list-panel" aria-labelledby="tasks-title">
+      <div class="section-heading tasks-heading">
+        <div><h2 id="tasks-title">Your tasks</h2><p id="task-count" class="subtle">0 tasks</p></div>
+        <label class="search-label" for="search-tasks">Search tasks
+          <input type="search" id="search-tasks" placeholder="Search by name or description">
+        </label>
+      </div>
+      <p id="empty-state" class="empty-state">No tasks available. Add your first task above.</p>
+      <ol id="task-list" class="task-list" aria-label="Your tasks"></ol>
+    </section>
+    <footer>Tasks are saved in this browser using local storage. No account required.</footer>
+    <div id="status" class="sr-only" role="status" aria-live="polite"></div>
+  </main>
+</body>
+</html>

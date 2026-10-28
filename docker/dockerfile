@@ -1,0 +1,14 @@
+FROM dhi.io/nginx:1-debian-dev
+
+LABEL maintainer="DevOps Team"
+
+# Copy HTML content
+COPY --chown=65532:65532 ./html/ /usr/share/nginx/html/
+
+# Run as non-root
+USER 65532:65532
+
+# Document the application port
+EXPOSE 8080
+
+# Inherit ENTRYPOINT and CMD from base image
