@@ -45,3 +45,10 @@ override.tf.json
 .terraformrc
 terraform.rc
 >>>>>>> 69103fd73370a844a346a1eca60ddb69dcb95225
+
+# Terraform sensitive files
+**/terraform.tfvars
+**/*.auto.tfvars
+**/*.tfstate
+**/*.tfstate.*
+**/.terraform/
