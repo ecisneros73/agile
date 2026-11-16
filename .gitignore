@@ -52,3 +52,18 @@ terraform.rc
 **/*.tfstate
 **/*.tfstate.*
 **/.terraform/
+
+# Terraform secrets
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
+
+# Terraform local files
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.tfstate.lock.info
+
+# Local credentials
+.env
+.env.*

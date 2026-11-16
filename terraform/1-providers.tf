@@ -3,7 +3,8 @@ provider "aws" {
 }
 
 provider "github" {
-  owner = "ecisneros74@gmail.com"
+  owner = "ecisneros73@gmail.com"
+  token = var.github_token
 }
 
 terraform {
